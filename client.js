@@ -1,7 +1,7 @@
 // Morandi's paper and ink palette, adapted to DSH's actual semantic tokens.
 // DSH owns mode and user font settings; heading size follows its font delta.
 window.__ModuleLoader__.load({
-  id: '@local/dsh-morandi-theme',
+  id: '@xwtaidev/dsh-theme-morandi',
   factory() {
     // Fall back to the source's serif style only when the user has not set a text font.
     const heading = 'var(--dsh-font-family-text, "Iowan Old Style", "Palatino Linotype", Palatino, "Songti SC", "Noto Serif SC", "Source Han Serif SC", Georgia, serif)';
@@ -114,7 +114,7 @@ window.__ModuleLoader__.load({
       inject: ['theme'],
       apply(ctx) {
         ctx.effect(
-          () => ctx.theme.overrideTokens('@local/dsh-morandi-theme', tokens),
+          () => ctx.theme.overrideTokens('@xwtaidev/dsh-theme-morandi', tokens),
           'morandi: semantic theme tokens'
         );
       }

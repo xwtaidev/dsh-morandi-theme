@@ -82,7 +82,11 @@ function contrast(a, b) {
 }
 
 test('manifest, exports, locales, bundle patch, and JavaScript syntax', () => {
-  assert.equal(manifest.name, '@local/dsh-morandi-theme');
+  assert.equal(manifest.name, '@xwtaidev/dsh-theme-morandi');
+  assert.notEqual(manifest.private, true);
+  assert.equal(manifest.publishConfig.access, 'public');
+  assert.equal(manifest.repository.url, 'git+https://github.com/xwtaidev/dsh-morandi-theme.git');
+  assert.ok(manifest.keywords.includes('dsh-plugin'));
   assert.equal(manifest.type, 'module');
   assert.equal(manifest.license, 'MIT');
   assert.equal(manifest.dsh.bundle.patch, './cordis.patch.yml');
@@ -96,7 +100,8 @@ test('manifest, exports, locales, bundle patch, and JavaScript syntax', () => {
     assert.ok(manifest.files.includes(file), file);
   }
   assert.ok(manifest.files.includes('locale/*.json'));
-  assert.match(read('cordis.patch.yml'), /^- insert:\s*\n\s+- id: dsh-morandi-theme\s*\n\s+name: '@local\/dsh-morandi-theme'\s*$/);
+  assert.ok(manifest.files.includes('test/*.test.js'));
+  assert.equal(read('cordis.patch.yml').trim(), `- insert:\n    - id: dsh-morandi-theme\n      name: '${manifest.name}'`);
   for (const lang of ['en', 'zh']) {
     const { meta } = JSON.parse(read(`locale/${lang}.json`));
     assert.ok(meta.title && meta.description);
