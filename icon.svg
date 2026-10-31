@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Morandi paper and ink">
+  <rect x="3" y="3" width="58" height="58" rx="16" fill="#f5f1e8"/>
+  <path d="M12 43c7-13 13-20 20-20s13 7 20 20" fill="none" stroke="#7a6153" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="32" cy="19" r="5" fill="#8c98a0"/>
+  <path d="M18 49h28" stroke="#342f2b" stroke-width="3" stroke-linecap="round"/>
+</svg>
